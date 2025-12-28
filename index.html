@@ -1,52 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud & DevOps Portfolio</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
-        header { background: #0a74da; color: white; padding: 20px 0; text-align: center; }
-        nav ul { list-style: none; display: flex; justify-content: center; padding: 0; }
-        nav ul li { margin: 0 15px; }
-        nav ul li a { color: white; text-decoration: none; font-weight: bold; }
-        section { padding: 60px 20px; }
-        .hero { text-align: center; background: #eef5fc; padding: 80px 20px; }
-        .hero h1 { margin: 0; font-size: 3em; }
-        .hero p { font-size: 1.2em; color: #555; }
-        .skills { text-align: center; }
-        .skills span { display: inline-block; margin: 10px; padding: 10px 20px; background: #0a74da; color: white; border-radius: 5px; }
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px; }
-        .project-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; }
-        .project-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 5px; }
-        .project-card h3 { margin: 10px 0; }
-        .project-card p { color: #555; }
-        .project-card a { display: inline-block; margin-top: 10px; text-decoration: none; color: #0a74da; font-weight: bold; }
-        footer { text-align: center; padding: 20px; background: #0a74da; color: white; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud & DevOps Portfolio</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-    <h1>Olabanji Badru</h1>
+<header class="header">
+  <div class="container">
+    <h1 class="logo">Olabanji Badru</h1>
     <nav>
-        <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
+  </div>
 </header>
 
 <section id="hero" class="hero">
-    <h1>Cloud & DevOps Engineer</h1>
-    <p>Solutions Architect | Kubernetes | CI/CD | AWS Certified</p>
+  <div class="container">
+    <h2>Cloud & DevOps Engineer</h2>
+    <p>Solutions Architect • Kubernetes • CI/CD • AWS Certified</p>
+  </div>
 </section>
 
-<section id="skills" class="skills">
-    <h2>Skills</h2>
+<section id="skills" class="skills container">
+  <h2>Skills</h2>
+  <div class="skill-list">
     <span>AWS</span>
     <span>Docker</span>
     <span>Kubernetes</span>
@@ -54,53 +40,79 @@
     <span>Prometheus</span>
     <span>Grafana</span>
     <span>Ansible</span>
+  </div>
 </section>
 
-<section id="projects">
+<section id="projects" class="projects">
+  <div class="container">
     <h2>Projects</h2>
+
     <div class="project-grid">
-        <div class="project-card">
-            <img src="assets/screenshots/project1.png" alt="Project 1 Screenshot">
-            <h3>Project 1: S3 Static Hosting</h3>
-            <p>Static website hosted on AWS S3 with CloudFront CDN.</p>
-           <a href="https://olabadmanji.github.io/OBDevOps/aws-static-website/">AWS Static Website Project</a>
-        </div>
-        <div class="project-card">
-            <img src="assets/screenshots/project2.png" alt="Project 2 Screenshot">
-            <h3>Project 2: EC2 Web App</h3>
-            <p>Web application deployed on AWS EC2 instance with Apache.</p>
-            <a href="https://github.com/yourusername/project2-ec2-webapp" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project-card">
-            <img src="assets/screenshots/project3.png" alt="Project 3 Screenshot">
-            <h3>Project 3: CI/CD with GitHub Actions & EC2</h3>
-            <p>Automated deployment pipeline for EC2 using GitHub Actions.</p>
-            <a href="https://github.com/yourusername/project3-ci-cd-ec2" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project-card">
-            <img src="assets/screenshots/project4.png" alt="Project 4 Screenshot">
-            <h3>Project 4: Docker + Kubernetes + EKS</h3>
-            <p>Containerized application deployed on AWS EKS with CI/CD pipeline.</p>
-            <a href="https://github.com/yourusername/project4-docker-k8s-eks" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project-card">
-            <img src="assets/screenshots/project5.png" alt="Project 5 Screenshot">
-            <h3>Project 5: Monitoring & Security</h3>
-            <p>Observability and security for EKS application using Prometheus, Grafana & IAM.</p>
-            <a href="https://github.com/yourusername/project5-monitoring-security" target="_blank">View on GitHub</a>
-        </div>
+
+      <div class="project-card">
+        <img src="assets/screenshots/project1.png" alt="Project 1 Screenshot">
+        <h3>S3 Static Website Hosting</h3>
+        <p>Static website hosted on AWS S3 with CloudFront CDN.</p>
+        <a href="https://olabadmanji.github.io/OBDevOps/aws-static-website/" target="_blank">
+          View Project →
+        </a>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/screenshots/project2.png" alt="Project 2 Screenshot">
+        <h3>EC2 Web Application</h3>
+        <p>Web application deployed on AWS EC2 with Apache.</p>
+        <a href="https://github.com/yourusername/project2-ec2-webapp" target="_blank">
+          View on GitHub →
+        </a>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/screenshots/project3.png" alt="Project 3 Screenshot">
+        <h3>CI/CD with GitHub Actions</h3>
+        <p>Automated EC2 deployment using GitHub Actions.</p>
+        <a href="https://github.com/yourusername/project3-ci-cd-ec2" target="_blank">
+          View on GitHub →
+        </a>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/screenshots/project4.png" alt="Project 4 Screenshot">
+        <h3>Docker & Kubernetes on EKS</h3>
+        <p>Containerized application deployed on AWS EKS with CI/CD.</p>
+        <a href="https://github.com/yourusername/project4-docker-k8s-eks" target="_blank">
+          View on GitHub →
+        </a>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/screenshots/project5.png" alt="Project 5 Screenshot">
+        <h3>Monitoring & Security</h3>
+        <p>Observability with Prometheus, Grafana & AWS IAM.</p>
+        <a href="https://github.com/yourusername/project5-monitoring-security" target="_blank">
+          View on GitHub →
+        </a>
+      </div>
+
     </div>
+  </div>
 </section>
 
 <section id="contact" class="contact">
+  <div class="container">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:your.email@example.com">badrusodiq1@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/olabanji-badru-91a657101</a></p>
-    <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/Olabadmanji</a></p>
+    <p>Email: <a href="mailto:badrusodiq1@gmail.com">badrusodiq1@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/olabanji-badru-91a657101" target="_blank">
+      linkedin.com/in/olabanji-badru-91a657101
+    </a></p>
+    <p>GitHub: <a href="https://github.com/Olabadmanji" target="_blank">
+      github.com/Olabadmanji
+    </a></p>
+  </div>
 </section>
 
-<footer>
-    <p>&copy; 2025 Olabanji Badru | Cloud & DevOps Portfolio</p>
+<footer class="footer">
+  <p>&copy; 2025 Olabanji Badru | Cloud & DevOps Portfolio</p>
 </footer>
 
 </body>
