@@ -19,7 +19,7 @@ User → Amazon S3 (Static Website Hosting)
 - $0 for small traffic
 
 # Live Demo
-http://olabanji-aws-static-site.s3-website-us-east-1.amazonaws.com
+https://olabadmanji.github.io/OBDevOps/aws-static-website/
 
 # What I Learned
 - How S3 serves static websites
