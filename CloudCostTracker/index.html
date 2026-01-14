@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudCost Dashboard | Portfolio Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; }
+        .chart-container { position: relative; height: 40vh; width: 80vw; }
+    </style>
+</head>
+<body class="p-6 md:p-12 font-sans">
+
+    <header class="mb-10 border-b border-slate-700 pb-6">
+        <h1 class="text-4xl font-extrabold tracking-tight text-blue-400">CloudCost Tracker</h1>
+        <p class="mt-2 text-slate-400">Automated AWS Expenditure Analysis & Visualization</p>
+    </header>
+
+    <main class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="bg-slate-800 p-6 rounded-2xl shadow-xl border border-slate-700">
+            <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider">Total Weekly Spend</h3>
+            <p id="totalCost" class="text-3xl font-bold mt-2 text-white">$0.00</p>
+        </div>
+        <div class="bg-slate-800 p-6 rounded-2xl shadow-xl border border-slate-700">
+            <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider">Top Service</h3>
+            <p id="topService" class="text-3xl font-bold mt-2 text-blue-400">---</p>
+        </div>
+        <div class="bg-slate-800 p-6 rounded-2xl shadow-xl border border-slate-700">
+            <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider">Status</h3>
+            <div class="flex items-center mt-3">
+                <span class="h-3 w-3 bg-green-500 rounded-full mr-2"></span>
+                <p class="text-lg font-medium text-white">Live Data</p>
+            </div>
+        </div>
+
+        <div class="lg:col-span-3 bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-700">
+            <h2 class="text-xl font-bold mb-6 text-white flex items-center">
+                <svg class="w-6 h-6 mr-2 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                Cost Distribution by Service
+            </h2>
+            <div class="chart-container mx-auto">
+                <canvas id="costChart"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-12 text-center text-slate-500 text-sm">
+        <p>Built with AWS Lambda, S3, & CloudFront</p>
+    </footer>
+
+    <script>
+        // Update the filename here to match your latest Lambda output
+        fetch('weekly_report_2025-12-29.csv')
+        .then(response => response.text())
+        .then(data => {
+            const rows = data.split('\n').filter(row => row.trim() !== "").slice(1);
+            const labels = [], costs = [];
+            let total = 0;
+
+            rows.forEach(r => {
+                const cols = r.split(',');
+                if(cols.length >= 3) {
+                    const service = cols[1];
+                    const amount = parseFloat(cols[2]);
+                    labels.push(service);
+                    costs.push(amount);
+                    total += amount;
+                }
+            });
+
+            // Update Summary Stats
+            document.getElementById('totalCost').innerText = `$${total.toFixed(2)}`;
+            const topServiceIndex = costs.indexOf(Math.max(...costs));
+            document.getElementById('topService').innerText = labels[topServiceIndex] || "N/A";
+
+            // Initialize Modern Chart
+            const ctx = document.getElementById('costChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Cost (USD)',
+                        data: costs,
+                        backgroundColor: '#60a5fa', // Tailwind blue-400
+                        borderRadius: 8,
+                        hoverBackgroundColor: '#3b82f6'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: { 
+                            beginAtZero: true,
+                            grid: { color: '#334155' },
+                            ticks: { color: '#94a3b8' }
+                        },
+                        x: { 
+                            grid: { display: false },
+                            ticks: { color: '#94a3b8' }
+                        }
+                    }
+                }
+            });
+        })
+        .catch(err => console.error("Error loading CSV:", err));
+    </script>
+</body>
+</html>
