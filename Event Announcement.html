@@ -1,25 +1,115 @@
-<body class="project-page">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Announcement System – Project</title>
 
-  <header class="project-header">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                   Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+                   sans-serif;
+      background-color: #f4f4f4;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid #333;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-top: 40px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .architecture-flow {
+      background-color: #e9e9e9;
+      padding: 15px;
+      border-left: 4px solid #333;
+      margin: 15px 0 20px 0;
+    }
+
+    img {
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 4px;
+    }
+
+    .footer {
+      margin-top: 60px;
+    }
+
+    .footer a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
     <h1>Event Announcement System – Serverless Event Notification System</h1>
     <hr>
-    <p>
-      A serverless event notification system built with AWS services.
-    </p>
-  </header>
 
-  <!-- Project Objective -->
-  <section class="project-section">
+    <p>
+      This project is a cloud-based <strong>Event Announcement System</strong> 
+      that allows event organizers to publish announcements and notify subscribers 
+      via email in real time.
+    </p>
+
+    <p>
+      It demonstrates serverless architecture using AWS Lambda and SNS, 
+      with a static frontend hosted on Amazon S3.
+    </p>
+
     <h2>Project Objective</h2>
     <p>
       To build a cloud-based Event Announcement System that allows event organizers 
       to publish announcements and notify subscribers via email in real time 
       using a serverless AWS architecture.
     </p>
-  </section>
 
-  <!-- Architecture Overview -->
-  <section class="project-section">
     <h2>Architecture Overview</h2>
 
     <div class="architecture-flow">
@@ -32,19 +122,15 @@
       <li>Email notifications via Amazon SNS</li>
       <li>Scalable and cost-efficient architecture</li>
     </ul>
-  </section>
 
-  <!-- Architecture Diagram -->
-  <section class="project-section">
     <h2>Architecture Diagram</h2>
+
     <img 
       src="assets/css/screenshots/Events-nots.jpg" 
       alt="Event Announcement System Architecture Diagram">
-  </section>
 
-  <!-- Tech Stack -->
-  <section class="project-section">
     <h2>Tech Stack</h2>
+
     <ul>
       <li>HTML, CSS, JavaScript</li>
       <li>AWS S3 (Static Website Hosting)</li>
@@ -53,11 +139,9 @@
       <li>IAM (Permissions & security)</li>
       <li>GitHub (Version control)</li>
     </ul>
-  </section>
 
-  <!-- Project Links -->
-  <section class="project-section">
     <h2>Project Repository</h2>
+
     <p>
       <a 
         href="https://github.com/Olabadmanji/OBDevOps/tree/main/Event%20Announcement" 
@@ -66,10 +150,12 @@
         View on GitHub →
       </a>
     </p>
-  </section>
 
-  <footer class="project-footer">
-    <a href="../index.html">← Back to portfolio</a>
-  </footer>
+    <div class="footer">
+      <a href="../index.html">← Back to portfolio</a>
+    </div>
+
+  </div>
 
 </body>
+</html>
