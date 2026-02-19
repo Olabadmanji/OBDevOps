@@ -81,7 +81,7 @@ This approach prevents hardcoded credentials and enforces least-privilege access
 
 ---
 
-## 🔐 Security Design
+## Security Design
 
 * Layered security using cascading Security Groups
 * ALB accessible from the internet (Port 80/443)
