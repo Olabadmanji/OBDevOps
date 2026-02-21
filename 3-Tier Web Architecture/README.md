@@ -41,6 +41,8 @@ The ALB distributes incoming traffic across multiple application instances to en
 
 The Auto Scaling Group ensures elasticity and automatic replacement of unhealthy instances.
 
+The EC2 instances are configured using a bootstrap script (`scripts/user_data.sh`) executed at launch time. This script installs required packages, retrieves secure parameters from AWS Systems Manager, and configures the web server automatically.
+
 ---
 
 ### 4. Database Layer – Amazon RDS (MySQL)
