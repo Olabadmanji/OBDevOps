@@ -8,7 +8,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "yourname-terraform-state-2024"  # paste your S3 bucket name here
+    bucket         = "container-bucket-terra" 
     key            = "project3/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
