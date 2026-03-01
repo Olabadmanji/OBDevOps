@@ -10,7 +10,7 @@ app.get('/health', (req, res) => {
 // Main endpoint
 app.get('/', (req, res) => {
   res.json({
-    message: 'Project 3 — ECS Fargate App is running!',
+    message: 'ECS Fargate App is running!',
     environment: process.env.NODE_ENV || 'development',
     // This shows secrets are injected (don't actually log real secret values in prod)
     db_password_set: !!process.env.DB_PASSWORD,
